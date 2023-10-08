@@ -1,6 +1,6 @@
 CC = gcc -Wall -Wextra -Werror
-NAME = ft_hexdump
-SRC = ft_hexdump.c ft_print_memory.c ft_strcpy.c star.c ft_file.c
+NAME = a.exe
+SRC = main.cpp menu.cpp student_db.cpp student.cpp
 OBJS = $(SRC:.c=.o)
 
 all : $(NAME)
@@ -8,7 +8,7 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	$(CC) $^ -o $@
 
-%.o : %.c ft_hexdump.h
+%.o : %.c %.h
 	$(CC) -c $< -o $@
 
 clean :

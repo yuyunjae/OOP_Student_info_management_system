@@ -5,7 +5,7 @@
 # include <iostream>
 # include <vector>
 # include <fstream>
-# include <student.h>
+# include "student.h"
 # include <algorithm>
 
 using namespace std;
@@ -28,6 +28,7 @@ public:
     int compare_id(Student a, Student b);
     int compare_ad_year(Student a, Student b);
     int compare_dept(Student a, Student b);
+    void print_student_info();
     //select연산과 이를 통한 출력 구현하기
 };
 

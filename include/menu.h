@@ -21,6 +21,8 @@ public:
     void sort_student_menu();
     void sort_student();
     void sort_student(int n);
+    void print_student_info_format();
+    void search_student();
     void write_all(int n);
 };
 

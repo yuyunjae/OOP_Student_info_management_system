@@ -4,15 +4,16 @@ Menu::Menu()
 {
     db = Student_db("file1.txt");
 }
+
 Menu::Menu(string file_name)
 {
     db = Student_db(file_name);
 }
 
 void Menu::first_menu()
-{	
+{
     cout << "1. Insertion\n";
-    cout << "2. Search\n";	
+    cout << "2. Search\n";
     cout << "3. Sorting Option\n";
     cout << "4. Exit\n";
 }
@@ -31,7 +32,7 @@ int Menu::input_menu()
 {
     int num_menu = -1;
     cout << "> ";
-    cin >> num_menu;
+    getline(cin, num_menu);
     return num_menu;
 }
 
@@ -44,15 +45,15 @@ void Menu::insert_student_menu()
     string department;
     //예외처리하기
     cout << "Name ? ";
-    cin >> name;
+    getline(cin, name);
     cout << "Student ID (10 digits)? ";
-    cin >> id;
+    getline(cin, id);
     cout << "Birth Year (4 digits) ? ";
-    cin >> birth_year;
+    getline(cin, birth_year);
     cout << "Department ? ";
-    cin >> department;
+    getline(cin, department);
     cout << "Tel ? ";
-    cin >> tel;
+    getline(cin, tel);
     db.insert_student(name, id, department, birth_year, tel);
 }
 
@@ -69,10 +70,23 @@ void Menu::sort_student()
 {
     db.sort_student_db(1);
 }
-
+∂
 void Menu::sort_student(int n)//1 name , 2 student id, 3 admission year, 4 department name;
 {
-    db.sort_student_db(n);    
+    db.sort_student_db(n);
+}
+
+void Menu::print_info_format()
+{
+    printf("%15s ", "Name");
+    printf("%10s ", "StudentID");
+    printf("%30s ", "Dept");
+    printf("%10s ", "Birth Year");
+    printf("%12s\n", "Tel");
+}
+
+void Menu::search_student()
+{
 }
 
 void Menu::write_all(int n)

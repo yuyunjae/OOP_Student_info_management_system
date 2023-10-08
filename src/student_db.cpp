@@ -87,7 +87,7 @@ void Student_db::sort_student_db(int n) //1 name , 2 student id, 3 admission yea
         sort(student_list.begin(), student_list.end(), compare_ad_year);
     if (n == 4)
         sort(student_list.begin(), student_list.end(), compare_dept);
-}   
+}
 
 void Student_db::write_file() //already sorted in menu
 {
@@ -102,4 +102,9 @@ void Student_db::write_file() //already sorted in menu
         o_file.close();
     }
     else cout << "Unable to open file: " << this->file_name << "\n";
+}
+
+void Student_db::print_student_info()
+{
+    //
 }
