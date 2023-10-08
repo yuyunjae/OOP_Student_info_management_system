@@ -20,7 +20,7 @@ void Student::change_department(string _department){department = _department;}
 string Student::student_info()
 {
     string info;
-    info = name + "?" + id + "?" + department + "?" + birth_year + "?" + tel;
+    info = name + "?" + id + "?" + department + "?" + birth_year + "?" + tel + "?";
     return info;
 }
 

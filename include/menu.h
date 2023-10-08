@@ -17,9 +17,9 @@ public:
 
     void first_menu();
     void search_menu();
-    //int check_possible_input(string s, int option); 각 포멧의 오류잡기
-    void search_menu_option(int option);
     int input_menu();
+    int input_info_isdigit(string s);
+    void search_menu_option(int option);
     void insert_student_menu();
     void sort_student_menu();
     void sort_student(int n);

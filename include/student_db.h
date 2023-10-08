@@ -25,16 +25,18 @@ public:
     void insert_student(string name, string id, string department, string birth_year, string tel);
     void sort_student_db(int n);
     void sort_student_db();
-    int compare_name(Student a, Student b);
-    int compare_id(Student a, Student b);
-    int compare_ad_year(Student a, Student b);
-    int compare_dept(Student a, Student b);
+    static int compare_name(Student a, Student b);
+    static int compare_id(Student a, Student b);
+    static int compare_ad_year(Student a, Student b);
+    static int compare_dept(Student a, Student b);
+    int same_id_in_db(string s);
     void print_student_info_format();
     void print_student_info(Student s);
     void search_student_name(string s);
     void search_student_id(string s);
     void search_student_admin_year(string s);
     void search_student_dept_name(string s);
+    void show_all_student_info();
 };
 
 #endif
