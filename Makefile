@@ -8,7 +8,7 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	$(CC) $^ -o $@
 
-%.o : %.c %.h
+%.o : %.c menu.h student_db.h student.h
 	$(CC) -c $< -o $@
 
 clean :

@@ -5,6 +5,7 @@
 # include <iostream>
 # include <vector>
 # include <fstream>
+# include <stdio.h>
 # include "student.h"
 # include <algorithm>
 
@@ -20,16 +21,20 @@ public:
     Student_db(string _file_name);
     void read_file();
     void write_file();
-    void sort_student_db();
     void parsing_student_info(string str);
     void insert_student(string name, string id, string department, string birth_year, string tel);
     void sort_student_db(int n);
+    void sort_student_db();
     int compare_name(Student a, Student b);
     int compare_id(Student a, Student b);
     int compare_ad_year(Student a, Student b);
     int compare_dept(Student a, Student b);
-    void print_student_info();
-    //select연산과 이를 통한 출력 구현하기
+    void print_student_info_format();
+    void print_student_info(Student s);
+    void search_student_name(string s);
+    void search_student_id(string s);
+    void search_student_admin_year(string s);
+    void search_student_dept_name(string s);
 };
 
 #endif

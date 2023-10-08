@@ -28,9 +28,38 @@ void Menu::search_menu()
     cout << "5. List All\n";
 }
 
+void Menu::search_menu_option(int option)
+{
+    string opt;
+    if (option == 1)
+    {
+        cout << "Student name to search: ";
+        getline(cin, opt);
+        db.search_student_name(opt);
+    }
+    else if (option == 2)
+    {
+        cout << "Student ID to search: ";
+        getline(cin, opt);
+        db.search_student_id(opt);
+    }
+    else if (option == 3)
+    {
+        cout << "Admission year to search: ";
+        getline(cin, opt);
+        db.search_student_admin_year(opt);
+    }
+    else if (option == 4)
+    {
+        cout << "Department name to search: ";
+        getline(cin, opt);
+        db.search_student_dept_name(opt);
+    }
+}
+
 int Menu::input_menu()
 {
-    int num_menu = -1;
+    int num_menu = 0;
     cout << "> ";
     getline(cin, num_menu);
     return num_menu;
@@ -44,10 +73,22 @@ void Menu::insert_student_menu()
     string tel; //up to 12 digit
     string department;
     //예외처리하기
-    cout << "Name ? ";
+    cout << "\nName ? ";
     getline(cin, name);
+    while (name.size() < 1 || name.size() > 15)
+        {
+            cout << "Please write student name with at least one character and up to 15 characters.\n";
+            cout << "Name ? ";
+            getline(cin, name);
+        }
     cout << "Student ID (10 digits)? ";
     getline(cin, id);
+    while (id.size()!= 10)
+        {
+            cout << "Please write student ID exactly 10 digits.\n";
+            cout << "Student ID (10 digits)? ";
+            getline(cin, name);
+        }
     cout << "Birth Year (4 digits) ? ";
     getline(cin, birth_year);
     cout << "Department ? ";
@@ -66,27 +107,9 @@ void Menu::sort_student_menu()
     cout << "4. Sort by Department name\n";
 }
 
-void Menu::sort_student()
-{
-    db.sort_student_db(1);
-}
-∂
 void Menu::sort_student(int n)//1 name , 2 student id, 3 admission year, 4 department name;
 {
     db.sort_student_db(n);
-}
-
-void Menu::print_info_format()
-{
-    printf("%15s ", "Name");
-    printf("%10s ", "StudentID");
-    printf("%30s ", "Dept");
-    printf("%10s ", "Birth Year");
-    printf("%12s\n", "Tel");
-}
-
-void Menu::search_student()
-{
 }
 
 void Menu::write_all(int n)

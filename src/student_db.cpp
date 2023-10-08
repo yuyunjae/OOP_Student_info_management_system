@@ -67,10 +67,10 @@ int Student_db::compare_id(Student a, Student b)
 }
 int Student_db::compare_ad_year(Student a, Student b)
 {
-    //고쳐야함 ad_year는 id의 앞 4글짜임.
-    string s1 = a.get_id();
-    string s2 = b.get_id();
-    return ((int)(a.get_id() < b.get_id()));
+    //ad_year는 id의 앞 4글짜임.
+    string s1 = a.get_id().substr(0, 4);
+    string s2 = b.get_id().substr(0, 4);
+    return ((int)(s1 < s2));
 }
 int Student_db::compare_dept(Student a, Student b)
 {
@@ -89,6 +89,11 @@ void Student_db::sort_student_db(int n) //1 name , 2 student id, 3 admission yea
         sort(student_list.begin(), student_list.end(), compare_dept);
 }
 
+void Student_db::sort_student_db()
+{
+    sort(student_list.begin(), student_list.end(), compare_name);
+}
+
 void Student_db::write_file() //already sorted in menu
 {
     ofstream o_file(this->file_name);
@@ -104,7 +109,82 @@ void Student_db::write_file() //already sorted in menu
     else cout << "Unable to open file: " << this->file_name << "\n";
 }
 
-void Student_db::print_student_info()
+void Student_db::print_student_info_format()
 {
-    //
+    printf("%15s ", "Name");
+    printf("%10s ", "StudentID");
+    printf("%30s ", "Dept");
+    printf("%10s ", "Birth Year");
+    printf("%12s\n", "Tel");
+}
+
+void Student_db::print_student_info(Student s)
+{
+    printf("%15s ", s.get_name());
+    printf("%10s ", s.get_id());
+    printf("%36s ", s.get_department());
+    printf("%4s ", s.get_birth_year());
+    printf("%12s\n", s.get_tel());
+}
+
+void Student_db::search_student_name(string s)
+{
+    int count = 0;
+    print_student_info_format();
+    for(int i = 0; i < student_list.size(); i++)
+    {
+        if (s.compare(student_list[i].get_name()) == 0)
+        {
+            print_student_info(student_list[i]);
+            count++;
+        }
+    }
+    if (count == 0)
+        printf("There are no matching students in the database.\n");
+}
+
+void Student_db::search_student_id(string s)
+{
+    int count = 0;
+    print_student_info_format();
+    for(int i = 0; i < student_list.size(); i++)
+    {
+        if (s.compare(student_list[i].get_id()) == 0)
+        {
+            print_student_info(student_list[i]);
+            count++;
+        }
+    }
+    if (count == 0)
+        printf("There are no matching students in the database.\n");
+}
+void Student_db::search_student_admin_year(string s)
+{
+    int count = 0;
+    print_student_info_format();
+    for(int i = 0; i < student_list.size(); i++)
+    {
+        if (s.compare(student_list[i].get_id().substr(0, 4)) == 0)
+        {
+            print_student_info(student_list[i]);
+            count++;
+        }
+    }
+    if (count == 0)
+        printf("There are no matching students in the database.\n");
+}
+void Student_db::search_student_dept_name(string s)
+{
+    int count = 0;
+    print_student_info_format();
+    for(int i = 0; i < student_list.size(); i++)
+    {
+        if (s.compare(student_list[i].get_department()) == 0)
+        {
+            print_student_info(student_list[i]);
+            count++;
+        }
+    }
+    if (count == 0)
+        printf("There are no matching students in the database.\n");
 }
