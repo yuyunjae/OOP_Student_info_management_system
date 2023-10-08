@@ -1,4 +1,4 @@
-#include <student_db.h>
+#include "student_db.h"
 
 
 Student_db::Student_db()
@@ -111,7 +111,7 @@ void Student_db::write_file() //already sorted in menu
 
 void Student_db::print_student_info_format()
 {
-    printf("%15s ", "Name");
+    printf("\n%15s ", "Name");
     printf("%10s ", "StudentID");
     printf("%30s ", "Dept");
     printf("%10s ", "Birth Year");
@@ -130,61 +130,65 @@ void Student_db::print_student_info(Student s)
 void Student_db::search_student_name(string s)
 {
     int count = 0;
-    print_student_info_format();
     for(int i = 0; i < student_list.size(); i++)
     {
         if (s.compare(student_list[i].get_name()) == 0)
         {
+            if (count == 0)
+                print_student_info_format();
             print_student_info(student_list[i]);
             count++;
         }
     }
     if (count == 0)
-        printf("There are no matching students in the database.\n");
+        printf("\nThere are no matching students in the database.\n");
 }
 
 void Student_db::search_student_id(string s)
 {
     int count = 0;
-    print_student_info_format();
     for(int i = 0; i < student_list.size(); i++)
     {
         if (s.compare(student_list[i].get_id()) == 0)
         {
+            if (count == 0)
+                print_student_info_format();
             print_student_info(student_list[i]);
             count++;
         }
     }
     if (count == 0)
-        printf("There are no matching students in the database.\n");
+        printf("\nThere are no matching students in the database.\n");
 }
 void Student_db::search_student_admin_year(string s)
 {
     int count = 0;
-    print_student_info_format();
     for(int i = 0; i < student_list.size(); i++)
     {
         if (s.compare(student_list[i].get_id().substr(0, 4)) == 0)
         {
+            if (count == 0)
+                print_student_info_format();
             print_student_info(student_list[i]);
             count++;
         }
     }
     if (count == 0)
-        printf("There are no matching students in the database.\n");
+        printf("\nThere are no matching students in the database.\n");
 }
 void Student_db::search_student_dept_name(string s)
 {
     int count = 0;
-    print_student_info_format();
     for(int i = 0; i < student_list.size(); i++)
     {
         if (s.compare(student_list[i].get_department()) == 0)
         {
+            if (count == 0)
+                print_student_info_format();
             print_student_info(student_list[i]);
             count++;
         }
     }
     if (count == 0)
-        printf("There are no matching students in the database.\n");
+        printf("\nThere are no matching students in the database.\n");
 }
