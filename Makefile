@@ -2,15 +2,15 @@ GCC = g++ -Wall -Wextra -Werror
 NAME = a.exe
 INCLUDE = include
 SRC = src/main.cpp src/menu.cpp src/student_db.cpp src/student.cpp
-OBJS = $(SRC:.c=.o)
+OBJS = $(SRC:.cpp=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
 	$(GCC) $^ -o $@
 
-%.o : %.cpp menu.h student_db.h student.h
-	$(GCC) -I$(INCLUDE) -c $^ -o $@
+%.o : %.cpp include/menu.h include/student_db.h include/student.h
+	$(GCC) -I$(INCLUDE) -c $< -o $@
 
 clean :
 	rm -f $(OBJS)
