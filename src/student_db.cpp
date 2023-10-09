@@ -114,7 +114,7 @@ void Student_db::write_file() //already sorted in menu
 
 int Student_db::same_id_in_db(string s)
 {
-    for(int i = 0; i < student_list.size(); i++)
+    for(unsigned int i = 0; i < student_list.size(); i++)
     {
         if (s.compare(student_list[i].get_id()) == 0)
             return (1);
@@ -143,7 +143,7 @@ void Student_db::print_student_info(Student s)
 void Student_db::search_student_name(string s)
 {
     int count = 0;
-    for(int i = 0; i < student_list.size(); i++)
+    for(unsigned int i = 0; i < student_list.size(); i++)
     {
         if (s.compare(student_list[i].get_name()) == 0)
         {
@@ -160,7 +160,7 @@ void Student_db::search_student_name(string s)
 void Student_db::search_student_id(string s)
 {
     int count = 0;
-    for(int i = 0; i < student_list.size(); i++)
+    for(unsigned int i = 0; i < student_list.size(); i++)
     {
         if (s.compare(student_list[i].get_id()) == 0)
         {
@@ -176,7 +176,7 @@ void Student_db::search_student_id(string s)
 void Student_db::search_student_admin_year(string s)
 {
     int count = 0;
-    for(int i = 0; i < student_list.size(); i++)
+    for(unsigned int i = 0; i < student_list.size(); i++)
     {
         if (s.compare(student_list[i].get_id().substr(0, 4)) == 0)
         {
@@ -192,7 +192,7 @@ void Student_db::search_student_admin_year(string s)
 void Student_db::search_student_dept_name(string s)
 {
     int count = 0;
-    for(int i = 0; i < student_list.size(); i++)
+    for(unsigned int i = 0; i < student_list.size(); i++)
     {
         if (s.compare(student_list[i].get_department()) == 0)
         {
@@ -209,10 +209,10 @@ void Student_db::search_student_dept_name(string s)
 void Student_db::show_all_student_info()
 {
     int count = 0;
-    for(int i = 0; i < student_list.size(); i++)
+    for(unsigned int i = 0; i < student_list.size(); i++)
     {
         if (count == 0)
-            print_student_info_format();
+            print_student_info_format(); 
         print_student_info(student_list[i]);
         count++;
     }
