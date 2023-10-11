@@ -1,9 +1,9 @@
 #include "menu.h"
 
-Menu::Menu()
-{
-    db = Student_db("file1.txt");
-}
+//Menu::Menu()
+//{
+//    db = Student_db("file1.txt");
+//}
 
 Menu::Menu(string file_name)
 {
@@ -119,7 +119,10 @@ void Menu::insert_student_menu()
     while (id.size() != 10 || input_info_isdigit(id) == 0 || db.same_id_in_db(id))
     {
         if (db.same_id_in_db(id))
-            std::cout << "A student with that ID already exists in the database.\n";
+        {
+            std::cout << "Error : Already inserted\n";
+            return ;
+        }
         else
             std::cout << "Please write student ID exactly 10 digits.\n";
         std::cout << "Student ID (10 digits)? ";

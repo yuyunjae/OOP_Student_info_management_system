@@ -2,13 +2,9 @@
 
 int main(int argc, char **argv)
 {
-    if (argc == 2 || argc == 1) //입력을 무조건 1개의 파일을 받도록 수정하기
+    if (argc == 2) //입력을 무조건 1개의 파일을 받도록 수정하기
     {
-        Menu menual;
-        if (argc == 2)
-            menual = Menu(argv[1]);
-        else
-            menual = Menu();
+        Menu menual = Menu(argv[1]);
 
         int sort_op = 1;
         int first_op = 0;
@@ -57,5 +53,7 @@ int main(int argc, char **argv)
         }
         return (0);
     }
+    else
+        cout << "Error : give one file as argument!\n";
     return (1);
 }
