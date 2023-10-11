@@ -12,7 +12,6 @@ class Menu
 private:
     Student_db db;
 public:
-    //Menu();
     Menu(string file_name);
 
     void first_menu();

@@ -1,9 +1,5 @@
 #include "menu.h"
 
-//Menu::Menu()
-//{
-//    db = Student_db("file1.txt");
-//}
 
 Menu::Menu(string file_name)
 {

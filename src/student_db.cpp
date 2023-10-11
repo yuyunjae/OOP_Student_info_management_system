@@ -1,12 +1,7 @@
 #include "student_db.h"
 
 
-Student_db::Student_db()
-{
-    file_name = "file1.txt";
-    read_file();
-    sort_student_db();
-}
+Student_db::Student_db() {}
 
 Student_db::Student_db(string _file_name)
 {
