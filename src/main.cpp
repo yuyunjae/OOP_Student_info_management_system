@@ -2,7 +2,7 @@
 
 int main(int argc, char **argv)
 {
-    if (argc == 2 || argc == 1)
+    if (argc == 2 || argc == 1) //입력을 무조건 1개의 파일을 받도록 수정하기
     {
         Menu menual;
         if (argc == 2)
