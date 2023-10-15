@@ -46,7 +46,7 @@ int Menu::input_info_isdigit(string s)
 void Menu::search_menu_option(int option)
 {
     string opt;
-    if (option == 1) //name
+    if (option == 1) // name
     {
         std::cout << "\nStudent name to search: ";
         std::getline(cin, opt);
@@ -58,7 +58,7 @@ void Menu::search_menu_option(int option)
         }
         db.search_student_name(opt);
     }
-    else if (option == 2) //id
+    else if (option == 2) // id
     {
         std::cout << "\nStudent ID to search: ";
         std::getline(cin, opt);
@@ -70,7 +70,7 @@ void Menu::search_menu_option(int option)
         }
         db.search_student_id(opt);
     }
-    else if (option == 3) //adm year
+    else if (option == 3) // adm year
     {
         std::cout << "\nAdmission year to search: ";
         std::getline(cin, opt);
@@ -82,13 +82,13 @@ void Menu::search_menu_option(int option)
         }
         db.search_student_admin_year(opt);
     }
-    else if (option == 4) //dept name
+    else if (option == 4) // dept name
     {
         std::cout << "\nDepartment name to search: ";
         std::getline(cin, opt);
         db.search_student_dept_name(opt);
     }
-    else if (option == 5) //show list all
+    else if (option == 5) // show list all
         db.show_all_student_info();
 
     std::cout << "\n";
@@ -96,12 +96,12 @@ void Menu::search_menu_option(int option)
 
 void Menu::insert_student_menu()
 {
-    string name; //up to 15 char
+    string name; // up to 15 char
     string id; // first 4digits represent admission year; 10digit;
-    string birth_year; //4digit
-    string tel; //up to 12 digit
+    string birth_year; // 4digit
+    string tel; // up to 12 digit
     string department;
-    //student info
+    // student info
     std::cout << "\nName ? ";
     std::getline(cin, name);
     while (name.size() < 1 || name.size() > 15)
@@ -142,7 +142,7 @@ void Menu::insert_student_menu()
         std::cout << "Tel ? ";
         std::getline(cin, tel);
     }
-    //insert_student_info
+    // insert_student_info
     db.insert_student(name, id, department, birth_year, tel);
 }
 
@@ -155,7 +155,7 @@ void Menu::sort_student_menu()
     std::cout << "4. Sort by Department name\n";
 }
 
-void Menu::sort_student(int n) //1 name , 2 student id, 3 admission year, 4 department name;
+void Menu::sort_student(int n) // 1 name , 2 student id, 3 admission year, 4 department name;
 {
     db.sort_student_db(n);
 }

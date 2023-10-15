@@ -31,7 +31,7 @@ void Student_db::parsing_student_info(string str)
                 break;
             }
             element[j++] = str.substr(front, i - front);
-            front = i + 1; //front = &'?' + 1
+            front = i + 1; // front = &'?' + 1
         }
     }
     insert_student(element[0], element[1], element[2], element[3], element[4]);
@@ -47,7 +47,7 @@ void Student_db::read_file()
             parsing_student_info(line);
         r_file.close();
     }
-    //else cout << "Unable to open file: " << this->file_name << "\n";
+    // else cout << "Unable to open file: " << this->file_name << "\n";
 }
 
 int Student_db::compare_name(Student a, Student b)
@@ -63,7 +63,7 @@ int Student_db::compare_id(Student a, Student b)
 
 int Student_db::compare_ad_year(Student a, Student b)
 {
-    //ad_year는 id의 앞 4글짜임.
+    // ad_year는 id의 앞 4글짜임.
     string s1 = a.get_id().substr(0, 4);
     string s2 = b.get_id().substr(0, 4);
     return ((int)(s1 < s2));
@@ -74,7 +74,7 @@ int Student_db::compare_dept(Student a, Student b)
     return ((int)(a.get_department() < b.get_department()));
 }
 
-void Student_db::sort_student_db(int n) //1 name , 2 student id, 3 admission year, 4 department name;
+void Student_db::sort_student_db(int n) // 1 name , 2 student id, 3 admission year, 4 department name;
 {
     if (n == 1)
         sort(student_list.begin(), student_list.end(), compare_name);
@@ -91,7 +91,7 @@ void Student_db::sort_student_db()
     sort(student_list.begin(), student_list.end(), compare_name);
 }
 
-void Student_db::write_file() //already sorted in menu
+void Student_db::write_file() // already sorted in menu
 {
     ofstream o_file(this->file_name);
     if (o_file.is_open())
@@ -100,7 +100,7 @@ void Student_db::write_file() //already sorted in menu
         for (iter = student_list.begin(); iter != student_list.end(); iter++)
         {
             o_file << iter->student_info() << '\n';
-            //check -> cout << iter->student_info() << '\n';
+            // check -> cout << iter->student_info() << '\n';
         }
         o_file.close();
     }

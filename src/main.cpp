@@ -2,7 +2,7 @@
 
 int main(int argc, char **argv)
 {
-    if (argc == 2) //입력을 무조건 1개의 파일을 받도록 수정하기
+    if (argc == 2)
     {
         Menu menual = Menu(argv[1]);
 
@@ -17,17 +17,17 @@ int main(int argc, char **argv)
                 cout << "Please select the correct option.\n\n";
                 first_op = menual.input_menu();
             }
-            if (first_op == 4) //exit
+            if (first_op == 4) // exit
             {
                 menual.write_all(sort_op);
                 return (0);
             }
-            else if (first_op == 1) //insert
+            else if (first_op == 1) // insert
             {
                 menual.insert_student_menu();
                 menual.sort_student(sort_op);
             }
-            else if (first_op == 2) //search
+            else if (first_op == 2) // search
             {
                 menual.search_menu();
                 int opt = menual.input_menu();
@@ -38,7 +38,7 @@ int main(int argc, char **argv)
                 }
                 menual.search_menu_option(opt);
             }
-            else if (first_op == 3) //sort
+            else if (first_op == 3) // sort
             {
                 menual.sort_student_menu();
                 sort_op = menual.input_menu();

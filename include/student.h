@@ -8,11 +8,11 @@ using namespace std;
 class Student
 {
 private:
-    string name; //up to 15 char
+    string name; // up to 15 char
     string id; // first 4digits represent admission year; 10digit;
     string department;
-    string birth_year; //4digit
-    string tel; //up to 12 digit
+    string birth_year; // 4digit
+    string tel; // up to 12 digit
 
 public:
     Student(string _name, string _id, string department, string _birth_year, string _tel);
